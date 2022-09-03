@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { create as ipfsHttpClient } from 'ipfs-http-client'
+// import { create as ipfsHttpClient } from 'ipfs-http-client'
 import {
     Form,
     ListGroup,
@@ -8,7 +8,8 @@ import {
     ProgressBar,
     Container
 } from 'react-bootstrap'
-const ipfs = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
+// const ipfs = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
+import { ipfs, ipfsPublicURL } from './Common'
 const all = require('it-all')
 
 export const FolderUpload = ({ setUrl }) => {
@@ -40,7 +41,8 @@ export const FolderUpload = ({ setUrl }) => {
         const results = await uploadFiles(files)
         const length = results.length
         const FilesHash = results[length - 1].cid._baseCache.get('z')
-        const FilesUrl = 'https://ipfs.infura.io/ipfs/' + FilesHash
+        // const FilesUrl = 'https://ipfs.infura.io/ipfs/' + FilesHash
+        const FilesUrl = ipfsPublicURL + '/' + FilesHash
         console.log(FilesUrl)
         setUrl(FilesUrl)
         setFolderUrl(FilesUrl)

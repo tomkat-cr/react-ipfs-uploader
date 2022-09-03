@@ -41,7 +41,7 @@ export const ExampleTabs = () => {
 
                     <hr />
 
-                    <iframe
+                    {/* <iframe
                         src='https://codesandbox.io/embed/fileupload-81g84?fontsize=14&hidenavigation=1&theme=dark'
                         style={{
                             width: '100%',
@@ -53,7 +53,7 @@ export const ExampleTabs = () => {
                         title='FileUpload'
                         allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
                         sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
-                    ></iframe>
+                    ></iframe> */}
                 </Tab>
 
                 <Tab eventKey='MultipleFilesUpload' title='MultipleFilesUpload'>
@@ -78,7 +78,7 @@ export const ExampleTabs = () => {
 
                     <hr />
 
-                    <iframe
+                    {/* <iframe
                         src='https://codesandbox.io/embed/multiplefilesupload-uf6yw?fontsize=14&hidenavigation=1&theme=dark'
                         style={{
                             width: '100%',
@@ -90,7 +90,7 @@ export const ExampleTabs = () => {
                         title='MultipleFilesUpload'
                         allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
                         sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
-                    ></iframe>
+                    ></iframe> */}
                 </Tab>
 
                 <Tab eventKey='FolderUpload' title='FolderUpload'>
@@ -115,7 +115,7 @@ export const ExampleTabs = () => {
 
                     <hr />
 
-                    <iframe
+                    {/* <iframe
                         src='https://codesandbox.io/embed/folderupload-y6j2b?fontsize=14&hidenavigation=1&theme=dark'
                         style={{
                             width: '100%',
@@ -127,7 +127,7 @@ export const ExampleTabs = () => {
                         title='FolderUpload'
                         allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
                         sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
-                    ></iframe>
+                    ></iframe> */}
                 </Tab>
 
                 <Tab eventKey='ImageUpload' title='ImageUpload'>
@@ -151,7 +151,7 @@ export const ExampleTabs = () => {
 
                     <hr />
 
-                    <iframe
+                    {/* <iframe
                         src='https://codesandbox.io/embed/imageupload-65kpl?fontsize=14&hidenavigation=1&theme=dark'
                         style={{
                             width: '100%',
@@ -163,7 +163,7 @@ export const ExampleTabs = () => {
                         title='ImageUpload'
                         allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
                         sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
-                    ></iframe>
+                    ></iframe> */}
                 </Tab>
 
                 <Tab eventKey='PdfUpload' title='PdfUpload'>
@@ -187,7 +187,7 @@ export const ExampleTabs = () => {
 
                     <hr />
 
-                    <iframe
+                    {/* <iframe
                         src='https://codesandbox.io/embed/pdfupload-ce4ch?fontsize=14&hidenavigation=1&theme=dark'
                         style={{
                             width: '100%',
@@ -199,7 +199,7 @@ export const ExampleTabs = () => {
                         title='PdfUpload'
                         allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
                         sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
-                    ></iframe>
+                    ></iframe> */}
                 </Tab>
 
                 <Tab eventKey='TextUpload' title='TextUpload'>
@@ -223,7 +223,7 @@ export const ExampleTabs = () => {
 
                     <hr />
 
-                    <iframe
+                    {/* <iframe
                         src='https://codesandbox.io/embed/textupload-vpcst?fontsize=14&hidenavigation=1&theme=dark'
                         style={{
                             width: '100%',
@@ -235,7 +235,7 @@ export const ExampleTabs = () => {
                         title='TextUpload'
                         allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
                         sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
-                    ></iframe>
+                    ></iframe> */}
                 </Tab>
             </Tabs>
         </Container>

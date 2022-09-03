@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Form, Button, ProgressBar, Container } from 'react-bootstrap'
-import { create as ipfsHttpClient } from 'ipfs-http-client'
-const ipfs = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
+// import { create as ipfsHttpClient } from 'ipfs-http-client'
+// const ipfs = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
+import { ipfs, ipfsPublicURL } from './Common'
 
 export const TextUpload = ({ setUrl }) => {
     const [text, setText] = useState('')
@@ -15,7 +16,8 @@ export const TextUpload = ({ setUrl }) => {
 
         try {
             const added = await ipfs.add(text)
-            const url = `https://ipfs.infura.io/ipfs/${added.path}`
+            // const url = `https://ipfs.infura.io/ipfs/${added.path}`
+            const url = `${ipfsPublicURL}/${added.path}`
             setTextUrl(url)
             setUrl(url)
             setUploaded(true)

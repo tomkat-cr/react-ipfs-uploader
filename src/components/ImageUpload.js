@@ -7,8 +7,9 @@ import {
     Container,
     Badge
 } from 'react-bootstrap'
-import { create as ipfsHttpClient } from 'ipfs-http-client'
-const ipfs = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
+// import { create as ipfsHttpClient } from 'ipfs-http-client'
+// const ipfs = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
+import { ipfs, ipfsPublicURL } from './Common'
 
 export const ImageUpload = ({ setUrl }) => {
     const [image, setImage] = useState({})
@@ -32,7 +33,8 @@ export const ImageUpload = ({ setUrl }) => {
 
         try {
             const added = await ipfs.add(image)
-            const url = `https://ipfs.infura.io/ipfs/${added.path}`
+            // const url = `https://ipfs.infura.io/ipfs/${added.path}`
+            const url = `${ipfsPublicURL}/${added.path}`
             setUrl(url)
             setImagePreview(url)
             setUploaded(true)

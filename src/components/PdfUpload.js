@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Form, Button, ProgressBar, Container, Badge } from 'react-bootstrap'
-import { create as ipfsHttpClient } from 'ipfs-http-client'
-const ipfs = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
+// import { create as ipfsHttpClient } from 'ipfs-http-client'
+// const ipfs = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
+import { ipfs, ipfsPublicURL } from './Common'
 
 export const PdfUpload = ({ setUrl }) => {
     const [pdf, setPdf] = useState({})
@@ -25,7 +26,8 @@ export const PdfUpload = ({ setUrl }) => {
 
         try {
             const added = await ipfs.add(pdf)
-            const url = `https://ipfs.infura.io/ipfs/${added.path}`
+            // const url = `https://ipfs.infura.io/ipfs/${added.path}`
+            const url = `${ipfsPublicURL}/${added.path}`
             setPdfPreview(url)
             setUrl(url)
             setUploaded(true)

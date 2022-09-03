@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Form, Button, Badge, ProgressBar, Container } from 'react-bootstrap'
-import { create as ipfsHttpClient } from 'ipfs-http-client'
-const ipfs = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
+import { ipfs, ipfsPublicURL } from './Common'
+// import { create as ipfsHttpClient } from 'ipfs-http-client'
+// const ipfs = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
 export const FileUpload = ({ setUrl }) => {
     const [file, setFile] = useState({})
@@ -15,7 +16,8 @@ export const FileUpload = ({ setUrl }) => {
 
         try {
             const added = await ipfs.add(file)
-            const url = `https://ipfs.infura.io/ipfs/${added.path}`
+            // const url = `https://ipfs.infura.io/ipfs/${added.path}`
+            const url = `${ipfsPublicURL}/${added.path}`
             setUrl(url)
             setFileUrl(url)
             setUploaded(true)
