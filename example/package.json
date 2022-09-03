@@ -1,7 +1,7 @@
 {
-  "name": "react-ipfs-uploader-example",
+  "name": "react-ipfs-uploader-cr-example",
   "homepage": ".",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "./node_modules/react-scripts/bin/react-scripts.js build && node server.js",

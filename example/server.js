@@ -1,3 +1,4 @@
+// Express Server to allow react reading environment variables with process.env
 const express = require('express')
 const app = express()
 const path = require('path')
