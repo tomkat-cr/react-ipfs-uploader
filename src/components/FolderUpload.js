@@ -17,6 +17,8 @@ export const FolderUpload = ({ setUrl }) => {
     const [folderUrl, setFolderUrl] = useState('')
     const [loading, setLoading] = useState(false)
     const [uploaded, setUploaded] = useState(false)
+    const [uploadErrors, setUploadErrors] = useState('')
+    const [show, setShow] = useState(false)
 
     const uploadFiles = async () => {
         let fileObjectsArray = Array.from(files).map((file) => {

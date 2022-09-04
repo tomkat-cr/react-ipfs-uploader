@@ -1,32 +1,37 @@
 import React, { useState } from 'react'
-import { Form, Button, Badge, ProgressBar, Container } from 'react-bootstrap'
+import {
+    Form,
+    Button,
+    Badge,
+    ProgressBar,
+    Container,
+    Alert
+} from 'react-bootstrap'
 import { ipfs, ipfsPublicURL } from './Common'
-// import { create as ipfsHttpClient } from 'ipfs-http-client'
-// const ipfs = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
 export const FileUpload = ({ setUrl }) => {
     const [file, setFile] = useState({})
     const [fileUrl, setFileUrl] = useState('')
     const [loading, setLoading] = useState(false)
     const [uploaded, setUploaded] = useState(false)
-
+    const [uploadError, setUploadError] = useState('')
+    const [show, setShow] = useState(false)
     const uploadFile = async (e) => {
         setLoading(true)
         e.preventDefault()
-
         try {
             const added = await ipfs.add(file)
-            // const url = `https://ipfs.infura.io/ipfs/${added.path}`
             const url = `${ipfsPublicURL}/${added.path}`
             setUrl(url)
             setFileUrl(url)
             setUploaded(true)
         } catch (err) {
-            console.log('Error uploading the file : ', err)
+            setUploadError('Error uploading the file: ' + String(err))
+            console.log('Error uploading the file: ', err)
+            setShow(true)
         }
         setLoading(false)
     }
-
     const preUpload = (e) => {
         if (e.target.value !== '') {
             setFile(e.target.files[0])
@@ -34,7 +39,6 @@ export const FileUpload = ({ setUrl }) => {
             setFile({})
         }
     }
-
     const fileAndUploadButton = () => {
         if (file.name) {
             if (!loading) {
@@ -57,7 +61,23 @@ export const FileUpload = ({ setUrl }) => {
                                 Uploaded Successfully ✅
                             </h5>
                         ) : (
-                            <Button type='submit'>Upload File</Button>
+                            <div>
+                                {show ?
+                                    <Alert
+                                        variant='danger'
+                                        onClose={() => setShow(false)}
+                                        dismissible
+                                    >
+                                        <Alert.Heading>
+                                            Oh snap! You got an error!
+                                        </Alert.Heading>
+                                        <p>{uploadError}</p>
+                                    </Alert>
+                                :
+                                    ''
+                                }
+                                <Button type='submit'>Upload File</Button>
+                            </div>
                         )}
                     </div>
                 )
@@ -72,7 +92,6 @@ export const FileUpload = ({ setUrl }) => {
             }
         }
     }
-
     return (
         <div>
             <Form onSubmit={uploadFile}>
@@ -82,7 +101,6 @@ export const FileUpload = ({ setUrl }) => {
                     onChange={(e) => preUpload(e)}
                     className='mb-3'
                 />
-
                 {fileAndUploadButton()}
             </Form>
         </div>

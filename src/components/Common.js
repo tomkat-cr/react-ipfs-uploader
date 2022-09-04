@@ -1,19 +1,38 @@
-const projectId = process.env.REACT_APP_INFURA_PROJECT_ID
-const projectSecret = process.env.REACT_APP_DEPLOYER_PRIVATE_KEY
+const projectId = process.env.REACT_APP_IPFS_PROJECT_ID
+const projectSecret = process.env.REACT_APP_IPFS_API_KEY_SECRET
 
 const ipfsClient = require('ipfs-http-client')
-const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64')
+const auth =
+    'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64')
 
 export const ipfs = ipfsClient.create({
-  host: 'ipfs.infura.io',
-  port: 5001,
-  protocol: 'https',
-  headers: {
-    authorization: auth,
-  },
+    host: process.env.REACT_APP_IPFS_HOST,
+    port: process.env.REACT_APP_IPFS_PORT,
+    protocol: process.env.REACT_APP_IPFS_PROTOCOL,
+    headers: {
+        authorization: auth
+    }
 })
 
-console.log('>>--> projectId', projectId)
-console.log('>>--> projectSecret', projectSecret)
+if (process.env.REACT_APP_DEBUG) {
+    console.log('>>--> projectId', projectId)
+    console.log('>>--> projectSecret', projectSecret)
+    console.log(
+        '>>--> process.env.REACT_APP_IPFS_HOST',
+        process.env.REACT_APP_IPFS_HOST
+    )
+    console.log(
+        '>>--> process.env.REACT_APP_IPFS_PORT',
+        process.env.REACT_APP_IPFS_PORT
+    )
+    console.log(
+        '>>--> process.env.REACT_APP_IPFS_PROTOCOL',
+        process.env.REACT_APP_IPFS_PROTOCOL
+    )
+    console.log(
+        '>>--> process.env.REACT_APP_IPFS_PUBLIC_URL',
+        process.env.REACT_APP_IPFS_PUBLIC_URL
+    )
+}
 
-export const ipfsPublicURL = 'https://ipfs.infura.io/ipfs'
+export const ipfsPublicURL = process.env.REACT_APP_IPFS_PUBLIC_URL
